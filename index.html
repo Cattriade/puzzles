@@ -1,0 +1,33 @@
+<html>
+  <body>
+    <h1>🧠 Farb-Logikspiel</h1>
+  <div class="info-panel">
+    <button onclick="copyLink()">🔗 Teilen</button>
+    <button onclick="resetBoard()">🔁 Zurücksetzen</button>
+    <button onclick="generateNew()">🔁 Neu</button>
+    <button onclick="updateValidation()">🔁 Prüfen</button>
+    <button onclick="saveState()">💾 Zwischenstand speichern</button>
+<select id="saved-states" onchange="restoreState(this.value)">
+  <option value="">🔁 Zwischenstand wählen</option>
+</select>
+
+  <button onclick="compareSolution()">Lösung vergleichen</button>
+  <button onclick="highlightNextHint()">Hinweis anzeigen</button>
+  <button onclick="undoLastMove()">↩️ Rückgängig</button>
+    <br/>
+    <label><input type="number" id="board-size" min="6" max="20" onchange="updateSettings()" value=6 width="50">Board</label>
+    <label><input type="number" id="rule-number" value=10 onchange="updateSettings()" width="50">Regeln</label>
+    <label><input type="checkbox" id="toggle-check" onchange="updateSettings()"> Auto-Prüfung aktiv</label>
+    <label><input type="checkbox" id="toggle-click" onchange="updateSettings()" checked> Advanced Click</label>
+    <br/>
+    <div class="status"><span id="timer">00:00 min</span> - <span id="counter">0 Züge</span></div>
+    
+  </div>
+  <div id="board-wrapper">
+    <div id="board"></div>
+    
+  <div id="rule-overlays"></div>
+  <p id="message"></p>
+  </div>
+  </body>
+</html>
